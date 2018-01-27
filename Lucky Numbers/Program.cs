@@ -23,6 +23,7 @@ namespace Lucky_Numbers
             int userWon = 0;
             bool playAgain;
             int[] userNumbers = new int[6];
+            int isValidNum = 0;
             
 
 
@@ -63,8 +64,19 @@ namespace Lucky_Numbers
             for (int i = 0; i < userNumbers.Length; i++)
             {
                 Console.WriteLine("Please enter a lucky number" );
-                userNumbers[i] = int.Parse(Console.ReadLine());
-              //  Console.WriteLine("You picked lucky number " + userNumbers[i]);//test the numbers are in the array
+                isValidNum = int.Parse(Console.ReadLine());
+                if (isValidNum < startNum)
+                {
+                    Console.WriteLine("The number you chose is not within your range.");
+                    Console.WriteLine("Please pick a lucky number greater than " + startNum);
+
+                }
+              //  else userNumbers[i] == isValidNum;
+                //{
+                //    Console.WriteLine("The number you chose is not within your range.");
+                //    Console.WriteLine("Please pick a lucky number less than " + endNum);
+                //}
+                          
             }
 
             //first we'll instantiate & initialize a new random object
