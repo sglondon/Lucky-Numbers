@@ -25,6 +25,7 @@ namespace Lucky_Numbers
             int[] userNumbers = new int[6];
             int isValidNum = 0;
             int totalValidNums = 0;
+            int count = 0;
 
 
 
@@ -90,50 +91,65 @@ namespace Lucky_Numbers
             //with the random number generator
             //and use startNum and endNum to set the range
             //of numbers to be generated
-
+            Console.WriteLine("Let's see what tonight's winning number are!");
+            Console.WriteLine("They are:");
             Random r = new Random();
             int[] randomNumbers = new int[6];
 
             for (int i = 0; i < randomNumbers.Length; i++)
             {
-                randomNumbers[i] = r.Next(startNum, endNum);
-                Console.WriteLine(randomNumbers[i]);
+                randomNumbers[i] = r.Next(startNum, endNum);                
+                Console.WriteLine("Lucky Number: " + randomNumbers[i]);
+                Console.WriteLine();
+                Console.WriteLine();
             }
-
+            
 
             //Now we need to check and see how many matches the user
-            //had with the randomly generated numbers
+            //had with the randomly generated numbers and keep track
+            //of how many times the user guessed correctly
+
+
+
 
             for (int i = 0; i < userNumbers.Length; i++)
             {
+                
                 if (userNumbers[i] == randomNumbers[0])
                 {
                     Console.WriteLine("this value is a match" + randomNumbers[0]);
+                    count++;
                 }
 
                 else if (userNumbers[i] == randomNumbers[1])
                 {
                     Console.WriteLine("this value is a match" + randomNumbers[1]);
+                    count++;
                 }
 
                 else if (userNumbers[i] == randomNumbers[2])
                 {
                     Console.WriteLine("this value is a match" + randomNumbers[2]);
+                    count++;
                 }
 
                 else if (userNumbers[i] == randomNumbers[3])
                 {
                     Console.WriteLine("this value is a match" + randomNumbers[3]);
+                    count++;
                 }
 
                 else if (userNumbers[i] == randomNumbers[4])
                 {
                     Console.WriteLine("this value is a match" + randomNumbers[4]);
+                    count++;
                 }
                 else if (userNumbers[i] == randomNumbers[5])
                 {
                     Console.WriteLine("this value is a match" + randomNumbers[5]);
+                    count++;
                 }
+                
                     //else if (userNumbers[i] == randomNumbers[])
                     //{
                     //    Console.WriteLine("the values are equal");
@@ -142,6 +158,13 @@ namespace Lucky_Numbers
                     //   else Console.WriteLine("I'm sorry, you didn't match any lucky numbers.");
 
                 }
+            Console.WriteLine("You guessed " + count + " numbers correctly!" );
+            Console.WriteLine();
+
+            //now we have to figure out how much our player won!
+
+
+
 
         }
     }
