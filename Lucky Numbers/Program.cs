@@ -9,44 +9,40 @@ namespace Lucky_Numbers
             //declare global variables
 
             int startNum = 0;
-            int endNum = 0;
-            //int luckyNumOne = 0;
-            //int luckyNumTwo = 0;
-            //int luckyNumThree = 0;
-            //int luckyNumFour = 0;
-            //int luckyNumFive = 0;
-            //int luckyNumSix = 0;
-            //bool validNum;
-            //string displayLuckyNum = "Lucky Number: ";
-            double jackPotAmt = 60000.00;
-            //int numCorrectGuess = 0;
+            int endNum = 0;            
+            double jackPotAmt = 60000.00;            
             double userWon = 0;
             string playAgain = "";
             int[] userNumbers = new int[6];
             int isValidNum = 0;
-           // int totalValidNums = 0;
             int count = 0;
 
-
+            //start our do loop which will allow the
+            //game to be played once before we check the exit condition
 
             //Tell the user you're starting the game
-            //and some simple directions and
-            //start our do loop
+            //and give some simple directions 
+
 
             do
             {
                 count = 0;
-               // Console.WriteLine(count);
+                // Console.WriteLine(count);
                 Console.WriteLine();
-                Console.WriteLine("Ok, let's Play Lucky Numbers! The Jackpot is worth $" + jackPotAmt + "!");
                 Console.WriteLine();
-                Console.WriteLine("You will be asked to enter a starting and an ending number.");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("WELCOME!");
+                Console.WriteLine();
+                Console.WriteLine("Let's Play Lucky Numbers! The Jackpot is worth $" + jackPotAmt + "!");
+                Console.WriteLine();
+                Console.WriteLine("You will be asked to enter a starting and an ending number, this will set the range of eligible numbers to play.");
                 Console.WriteLine();
                 Console.WriteLine("Obviously the starting number must be lower than the ending number!");
                 Console.WriteLine();
 
 
-            //ask the user for a starting number and ending number
+            //ask the user for a starting number and ending number for our range
            
 
                 Console.WriteLine("Please enter a starting number.");
@@ -64,7 +60,8 @@ namespace Lucky_Numbers
                 //there are 6 valid entries            
                 //then populate an array with the numbers the user enters;
 
-
+                Console.WriteLine("You will now be asked to enter 6 lucky numbers.");
+                Console.WriteLine();
 
 
                 for (int i = 0; i < userNumbers.Length; i++)
@@ -76,6 +73,7 @@ namespace Lucky_Numbers
                     if ((isValidNum < startNum) || (isValidNum >= endNum))
                     {
                         Console.WriteLine("The number you chose is not within your range.");
+                        Console.WriteLine();
                         Console.WriteLine("Please pick a lucky number greater than " + startNum + " and less than " + endNum);
                         i--;
 
@@ -90,12 +88,13 @@ namespace Lucky_Numbers
                 }
 
 
-
-                //first we'll instantiate & initialize a new random object
-                //now we'll populate the random numbers array
-                //with the random number generator
-                //and use startNum and endNum to set the range
+                //now we'll use the random number generator using
+                // startNum and endNum to set the range
                 //of numbers to be generated
+                //and populate the array
+
+                //display the winning numbers
+
                 Console.WriteLine("Let's see what tonight's winning number are!");
                 Console.WriteLine("They are:");
                 Random r = new Random();
@@ -113,7 +112,7 @@ namespace Lucky_Numbers
                 //Now we need to check and see how many matches the user
                 //had with the randomly generated numbers and keep track
                 //of how many times the user guessed correctly
-
+                //and diplay which lucky numbers they matched
 
 
 
@@ -155,13 +154,7 @@ namespace Lucky_Numbers
                         count++;
                     }
 
-                    //else if (userNumbers[i] == randomNumbers[])
-                    //{
-                    //    Console.WriteLine("the values are equal");
-                    //    Console.WriteLine(randomNumbers[i] + userNumbers[i]);
-                    //}
-                    //   else Console.WriteLine("I'm sorry, you didn't match any lucky numbers.");
-
+                    
                 }
                 Console.WriteLine();
                 Console.WriteLine();
@@ -211,13 +204,23 @@ namespace Lucky_Numbers
                 //if they type yes, start all over again;
                 //if they type no, 
                 //say thanks for playing
+                //if they enter anything else, treat it as a no
 
                 Console.WriteLine();
                 Console.WriteLine("Would you like to play Lucky Numbers again? Type Yes or No");
-                playAgain = Console.ReadLine().ToLower();
+                playAgain = Console.ReadLine().ToLower();               
+
                 if (playAgain == "no")
+                {
                     Console.WriteLine();
                     Console.WriteLine("Thanks for Playing!");
+                }
+                else if (playAgain != "yes")  
+                {                           
+                    playAgain = "no";
+                    Console.WriteLine("Thanks for Playing!");
+                }
+
             } while (playAgain != "no");
 
 
