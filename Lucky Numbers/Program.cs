@@ -18,9 +18,9 @@ namespace Lucky_Numbers
             int luckyNumSix = 0;
             bool validNum;
             string displayLuckyNum = "Lucky Number: ";
-            string jackPotAmt = "$50,000.00";
+            double jackPotAmt = 60000.00;
             int numCorrectGuess = 0;
-            int userWon = 0;
+            double userWon = 0;
             bool playAgain;
             int[] userNumbers = new int[6];
             int isValidNum = 0;
@@ -33,7 +33,7 @@ namespace Lucky_Numbers
             //and some simple directions
 
 
-            Console.WriteLine("Ok, let's Play Lucky Numbers! The Jackpot is worth " + jackPotAmt);
+            Console.WriteLine("Ok, let's Play Lucky Numbers! The Jackpot is worth " + jackPotAmt + " !");
             Console.WriteLine();
             Console.WriteLine("You will be asked to enter a starting and an ending number.");
             Console.WriteLine();
@@ -161,7 +161,47 @@ namespace Lucky_Numbers
             Console.WriteLine("You guessed " + count + " numbers correctly!" );
             Console.WriteLine();
 
-            //now we have to figure out how much our player won!
+            //now we have to figure out how much our player won
+            //and let them know
+
+            if (count == 1)
+            {
+                userWon = (jackPotAmt * .0058);
+                Console.WriteLine("You won " + "$ " + userWon + "! Congratulations!");
+            }
+            else if (count == 2)
+            {
+                userWon = (jackPotAmt * .0125);
+                Console.WriteLine("You won " + "$ " + userWon + "! Congratulations!");
+            }
+            else if (count == 3)
+            {
+                userWon = (jackPotAmt * .025);
+                Console.WriteLine("You won " + "$ " + userWon + "! Congratulations!");
+            }
+            else if (count == 4)
+            {
+                userWon = (jackPotAmt * .05);
+                Console.WriteLine("You won " + "$ " + userWon + "! Congratulations!");
+            }
+
+            else if (count == 5)
+            {
+                userWon = (jackPotAmt * .1);
+                Console.WriteLine("You won " + "$ " + userWon + "! Congratulations!");
+            }
+
+            else if (count == 6)
+            {
+                userWon = (jackPotAmt * 1);
+                Console.WriteLine("You won " + "$ " + userWon + "! Congratulations!");
+            }
+            else if (count == 0)
+                Console.WriteLine("Sorry, you didn't win anything this time. Better luck next time!");
+
+
+
+
 
 
 
